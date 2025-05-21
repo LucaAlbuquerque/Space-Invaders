@@ -2,7 +2,7 @@
 
 ## Descrição
 
-O Galaxy Guard é um jogo no estilo do clássico "Space Invaders" dos arcades, no qual o jogador controla uma nave espacial que deve eliminar ameaças alienígenas
+O Galaxy Guard é um jogo no estilo do clássico "Space Invaders" dos arcades, no qual o jogador controla uma nave espacial que deve eliminar ameaças alienígenas.
 
 ## Como posso jogar?
 
