@@ -1,11 +1,3 @@
-/**
- * screen.h
- * Created on Aug, 23th 2023
- * Author: Tiago Barros
- * Based on "From C to C++ course - 2002"
- * Reference: https://en.wikipedia.org/wiki/ANSI_escape_code
- */
-
 #ifndef __SCREEN_H__
 #define __SCREEN_H__
 
