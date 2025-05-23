@@ -6,10 +6,10 @@ O Galaxy Guard é um jogo no estilo do clássico "Space Invaders" dos arcades, n
 
 ## Como posso jogar?
 
-- Use as teclas "a" e "d" para controlar a nave movendo para direita e esquerda e "espaço" para atirar.
+- Use as teclas "a" e "d" para mover a nave para a esquerda e direita e a tecla de espaço para atirar.
 - Certifique-se de manter o caps lock desativado.
 - Mantenha sua nave em movimento para acertar os alienígenas e marcar pontos.
-- Caso seja atingido por um disparo inimigo, estara eliminado!
+- Caso seja atingido por um disparo inimigo, será eliminado!
 
 ## Manual para executar o jogo
 
@@ -18,6 +18,7 @@ O Galaxy Guard é um jogo no estilo do clássico "Space Invaders" dos arcades, n
    # Caso esteja usando linux
    sudo apt update
    sudo apt install git build-essential
+   sudo apt install libncurses5-dev libncursesw5-dev
    ```
 
    ```sh
