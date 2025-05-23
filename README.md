@@ -15,14 +15,14 @@ O Galaxy Guard é um jogo no estilo do clássico "Space Invaders" dos arcades, n
 
 ### 1. Instale os pré-requisitos:
    ```sh
-   # Caso esteja usando linux e tenha o Ubuntu ou Debian instalado
+   # Caso esteja usando linux (Ubunto ou Debian instalados)
    sudo apt update
    sudo apt install git build-essential
    sudo apt install libncurses5-dev libncursesw5-dev
    ```
 
    ```sh
-   # Caso esteja usando macOS e tenha o Homebrew instalado
+   # Caso esteja usando macOS (Homebrew instalado)
    brew install gcc ncurses
    ```
 ### 2. Clone este repositório:
