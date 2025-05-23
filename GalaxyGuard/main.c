@@ -431,7 +431,7 @@ void menu(){
     screenClear();
     screenInit(1);
     screenSetColor(GREEN, BLACK);
-    const char *itens_menu[] = {"1. Jogar", "2. Ver Pontuacoes", "3. Sair"};
+    const char *itens_menu[] = {"BEM VINDO AO GALAXY GUARD!", "1. Jogar", "2. Ver Pontuacoes", "3. Sair"};
     int num_itens = sizeof(itens_menu) / sizeof(itens_menu[0]);
     int inicio_y = ALTURA / 2 - num_itens;
     for (int i = 0; i < num_itens; ++i) {
