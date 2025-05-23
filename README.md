@@ -22,7 +22,7 @@ O Galaxy Guard é um jogo no estilo do clássico "Space Invaders" dos arcades, n
    No terminal, vá para o diretório onde deseja salvar o repositório clonado
    ```sh
    cd ~/suaPasta
-   git clone https://github.com/LucaAlbuquerque/Space-Invaders.git
+   git clone https://github.com/LucaAlbuquerque/Galaxy-Guard.git
    ```
 ### 3. Acesse a pasta do jogo:
    ```sh
