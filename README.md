@@ -32,7 +32,7 @@ O Galaxy Guard é um jogo no estilo do clássico "Space Invaders" dos arcades, n
    ```
 ### 3. Acesse a pasta do jogo:
    ```sh
-   cd Space-Invaders
+   cd GalaxyGuard
    ```
 ### 4. Compile o jogo:
    ```sh
