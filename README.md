@@ -1,7 +1,7 @@
 # Galaxy Guard
 <ul>
    <li>
-      <a href="https://docs.google.com/presentation/d/1K82kLSxbGUiApIRGn5Iy2yYNFlHuINdeMKlAXc-GrjI/edit?usp">Link dos Slides </a>
+      <a href="https://docs.google.com/presentation/d/19b5voxzaKqtMUU8Evx21ITCZZAyn942A_z_XcyDzCuI/edit?slide=id.p5#slide=id.p5">Link dos Slides </a>
    </li>
 </ul>
 
