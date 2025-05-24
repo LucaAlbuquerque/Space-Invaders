@@ -7,7 +7,6 @@
 #include <time.h>
 #include <unistd.h>
 
-// Estruturas para as definições dos elementos
 typedef struct {
   int x, y;
 } Posicao;
@@ -26,7 +25,6 @@ typedef struct {
   int vivo;
 } Inimigo;
 
-// Declarações de função (prototypes)
 void inicializa(Jogador **jogador, Inimigo **inimigos, Projetil **projeteisJogador, Projetil **projeteisInimigo);
 void desenho(Jogador jogador, Inimigo inimigos[], Projetil projeteisJogador[], Projetil projeteisInimigo[]);
 void atualiza(Jogador *jogador, Inimigo inimigos[], Projetil projeteisJogador[], Projetil projeteisInimigo[]);
@@ -40,7 +38,6 @@ void desenha_pontuacao();
 void salva_pontuacao();
 void ver_ranking();
 
-// Variáveis globais
 #define INIMIGOS_POR_LINHA 6
 #define NUM_LINHAS 4
 #define NUM_INIMIGOS (INIMIGOS_POR_LINHA * NUM_LINHAS)
@@ -48,7 +45,6 @@ void ver_ranking();
 #define LARGURA 81
 #define ALTURA 24
 
-// Inicialização de elementos
 int pontuacao = 0;
 char nomeJogador[20];
 int timerMovimentoInimigo = 0;
@@ -88,11 +84,7 @@ int main(){
   return 0;
 }
 
-// Funções do Código:
-
-// Função de inicialização dos elementos e do jogo em si
 void inicializa(Jogador **jogador, Inimigo **inimigos, Projetil **projeteisJogador, Projetil **projeteisInimigo){
-
   *jogador = (Jogador *)malloc(sizeof(Jogador));
   (*jogador)->pos.x = LARGURA / 2;
   (*jogador)->pos.y = ALTURA - 3;
@@ -115,12 +107,10 @@ void inicializa(Jogador **jogador, Inimigo **inimigos, Projetil **projeteisJogad
 }
 
 void desenha_caractere(int x, int y, char caractere){
-
-  screenGotoxy(x, y); // Move o cursor para a posição (x, y)
-  putchar(caractere); // Desenha o caractere
+  screenGotoxy(x, y);
+  putchar(caractere);
 }
 
-// Função de GAME OVER caso jogador seja derrotado
 void desenha_game_over(){
   screenInit(1);
   const char *mensagem = "GAME-OVER";
@@ -149,7 +139,6 @@ void desenha_game_over(){
   readch();
 }
 
-// Função para mensagem de Vitória após jogador eliminar todos inimigos
 void desenha_mensagem_vitoria() {
   screenInit(1);
   const char *mensagem = "VOCE VENCEU!";
@@ -178,9 +167,7 @@ void desenha_mensagem_vitoria() {
   readch();
 }
 
-// Função para desenhar a pontuação no topo da tela
 void desenha_pontuacao(){
-
   char str_pontuacao[40];
   sprintf(str_pontuacao, "Score: %d", pontuacao);
   int tamanho_mensagem = strlen(str_pontuacao);
@@ -191,9 +178,7 @@ void desenha_pontuacao(){
   }
 }
 
-// Função para definição do formato dos elementos
 void desenho(Jogador jogador, Inimigo inimigos[], Projetil projeteisJogador[], Projetil projeteisInimigo[]) {
-
   screenClear();
   screenInit(1);
   screenSetColor(GREEN, BLACK);
@@ -218,9 +203,7 @@ void desenho(Jogador jogador, Inimigo inimigos[], Projetil projeteisJogador[], P
   screenUpdate();
 }
 
-// Função para salvar a pontuação dos jogadores no arquivo .txt
 void salva_pontuacao(){
-
   FILE *arquivo = fopen("scores.txt", "a");
   if (arquivo){
     fprintf(arquivo, "Player: %s, Score: %d\n", nomeJogador, pontuacao);
@@ -230,11 +213,8 @@ void salva_pontuacao(){
   }
 }
 
-// Função para atualização de informações na tela
 void atualiza(Jogador *jogador, Inimigo inimigos[], Projetil projeteisJogador[], Projetil projeteisInimigo[]){
-
-  int todosInimigosMortos =
-      1; // Variável para verificar se todos os inimigos estão mortos
+  int todosInimigosMortos = 1;
 
   for (int i = 0; i < MAX_PROJETEIS; ++i){
     if (projeteisJogador[i].ativo){
@@ -263,13 +243,9 @@ void atualiza(Jogador *jogador, Inimigo inimigos[], Projetil projeteisJogador[],
             screenClear();
             desenha_game_over();
             salva_pontuacao();
-
-            // Voltar ao menu após mensagem de game over
             inicializa(&jogador, &inimigos, &projeteisJogador, &projeteisInimigo);
             menu();
             pega_nome_jogador();
-
-            // Limpa tela para reiniciar jogo
             screenClear();
         }
       }
@@ -280,7 +256,7 @@ void atualiza(Jogador *jogador, Inimigo inimigos[], Projetil projeteisJogador[],
 
   for (int i = 0; i < NUM_INIMIGOS; ++i){
     if (inimigos[i].vivo){
-      todosInimigosMortos = 0; // Se encontrar um inimigo vivo, define como 0
+      todosInimigosMortos = 0;
       if (rand() % 100 < 5){
         for (int j = 0; j < 3; ++j){
           for (int k = 0; k < MAX_PROJETEIS; ++k){
@@ -300,12 +276,9 @@ void atualiza(Jogador *jogador, Inimigo inimigos[], Projetil projeteisJogador[],
     screenClear();
     desenha_mensagem_vitoria();
     salva_pontuacao();
-
-    // Voltar ao menu após vitória
     inicializa(&jogador, &inimigos, &projeteisJogador, &projeteisInimigo);
     menu();
     pega_nome_jogador();
-
     screenClear();
   }
 
@@ -339,17 +312,13 @@ void atualiza(Jogador *jogador, Inimigo inimigos[], Projetil projeteisJogador[],
   }
 }
 
-// Função para finalizar jogo
 void finaliza(){
-
   keyboardDestroy();
   timerDestroy();
   screenDestroy();
 }
 
-// Função para salvar nickname do jogador
 void pega_nome_jogador(){
-
   const char *mensagem = "Digite seu nome: ";
   int tamanho_mensagem = strlen(mensagem);
   int inicio_x = (LARGURA - tamanho_mensagem) / 2;
@@ -368,7 +337,7 @@ void pega_nome_jogador(){
       if (ch == '\n' || ch == '\r'){
         nomeJogador[indice] = '\0';
         break;
-      }else if (ch == 127 && indice > 0){ // 127 em ASCII é caractere backspace
+      }else if (ch == 127 && indice > 0){
         indice--;
         desenha_caractere(inicio_x + tamanho_mensagem + indice, inicio_y, ' ');
         screenUpdate();
@@ -381,9 +350,7 @@ void pega_nome_jogador(){
   }
 }
 
-// Função para verificar o score de jogadores na tela
 void ver_ranking(){
-
   while (1){
     screenClear();
     screenInit(1);
@@ -418,15 +385,13 @@ void ver_ranking(){
     if (keyhit()) {
       int ch = readch();
       if (ch == '1'){
-        break; // Voltar ao menu
+        break;
       }
     }
   }
 }
 
-// Função para mostrar menu na tela
 void menu(){
-
   while (1){
     screenClear();
     screenInit(1);
@@ -446,7 +411,7 @@ void menu(){
     if (keyhit()){
       int ch = readch();
       if (ch == '1') {
-        break; // Começar o jogo
+        break;
       }else if (ch == '2'){
         ver_ranking();
       }else if (ch == '3'){
@@ -455,4 +420,4 @@ void menu(){
       }
     }
   }
-}   
+}
